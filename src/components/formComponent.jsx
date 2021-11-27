@@ -15,17 +15,18 @@ const useStyles = makeStyles({
   },
 });
 
-function FormComponent() {
+function FormComponent({ title, key }) {
   const classes = useStyles();
   return (
     <Card
+      key={key}
       className={classes.root}
       style={{ boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px" }}
     >
       <CardActionArea>
         <CardContent>
           <Typography gutterBottom variant="h6" component="h2">
-            asdf
+            {title}
           </Typography>
         </CardContent>
       </CardActionArea>
