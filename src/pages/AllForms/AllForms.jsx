@@ -1,4 +1,4 @@
-import FormComponent from "./../../components/formComponent";
+import ListItem from "../../components/ListItem";
 import "./AllForms.css";
 import { useState, useEffect } from "react";
 import { GET_FORMS } from "./../../service/formService";
@@ -22,7 +22,7 @@ function AllForms() {
     <div>
       <h1 className="title">List of available forms</h1>
       {forms.map((form) => (
-        <FormComponent title={form.formName} key={form._id} />
+        <ListItem title={form.formName} key={form._id} id={form._id} />
       ))}
     </div>
   );
