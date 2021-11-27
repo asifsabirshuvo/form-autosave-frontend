@@ -8,7 +8,8 @@ function AllForms() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await GET_FORMS(2, 2);
+        //avoiding pagination/infinite scroll due to time constraints, sending static
+        const response = await GET_FORMS(1, 10);
         setForms(response.data);
       } catch (e) {
         console.log(e);

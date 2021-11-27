@@ -15,11 +15,10 @@ const useStyles = makeStyles({
   },
 });
 
-function FormComponent({ title, key }) {
+function FormComponent({ title }) {
   const classes = useStyles();
   return (
     <Card
-      key={key}
       className={classes.root}
       style={{ boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px" }}
     >
