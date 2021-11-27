@@ -1,6 +1,6 @@
-import FormComponent from "../../components/ListItem";
+import InputItem from "../../components/InputItem";
 import { useState, useEffect } from "react";
-import { GET_FORM_BY_ID } from "./../../service/formService";
+import { GET_FORM_BY_ID } from "../../service/formService";
 import { useParams } from "react-router-dom";
 function SubmitForm() {
   const [form, setForm] = useState([]);
@@ -23,6 +23,12 @@ function SubmitForm() {
   return (
     <div>
       <h1 className="title">{form.formName}</h1>
+
+      {Object.keys(form).length
+        ? form.formElements.map((formElement) => (
+            <InputItem props={formElement} key={formElement._id}></InputItem>
+          ))
+        : ""}
     </div>
   );
 }
