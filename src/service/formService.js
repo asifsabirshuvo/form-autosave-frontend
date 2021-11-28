@@ -31,6 +31,26 @@ export async function GET_FORM_BY_ID(id) {
   }
 }
 
+export async function SUBMIT_FORM(body) {
+  try {
+    body.form = body._id;
+    body._id = undefined;
+    let result = await axios.post(`/responses`, body);
+    Alert("Oops!", "Your form has been submitted successfully!", "success");
+    console.log(result.data);
+    return result.data;
+  } catch (error) {
+    if (error.response.status === 400) {
+      // that falls out of the range of 2xx
+      // console.log("Request Error:", error);
+      Alert("Oops!", "Bad request. Check Fields", "error");
+    } else {
+      // console.log("Server error: ", error);
+      Alert("Oops!", "No response from our system!", "error");
+    }
+  }
+}
+
 function Alert(title, msg, type, time = 3000) {
   swal({ title: title, text: msg, icon: type, buttons: false, timer: time });
 }
