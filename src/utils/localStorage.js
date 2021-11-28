@@ -19,6 +19,7 @@ export function clearLocalStorage() {
 export function setLocalStorageElement(ELEMENT_KEY, VALUE) {
   const currentStoredValue = getLocalStorage();
   console.log(currentStoredValue);
+  //also we should check for edited false if all field value are removed.
   currentStoredValue.edited = true;
   currentStoredValue.formElements = currentStoredValue.formElements.map(
     (formElement) => {
