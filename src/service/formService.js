@@ -36,7 +36,7 @@ export async function SUBMIT_FORM(body) {
     body.form = body._id;
     body._id = undefined;
     let result = await axios.post(`/responses`, body);
-    Alert("Oops!", "Your form has been submitted successfully!", "success");
+    Alert("Thanks!", "Your form has been submitted successfully!", "success");
     console.log(result.data);
     return result.data;
   } catch (error) {
